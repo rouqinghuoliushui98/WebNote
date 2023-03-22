@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+  </head>
+  <body>
+    <h1>留言板</h1>
+    <h2>历史留言</h2>
+    {% if messages %}
+      <ul>
+        {% for timestamp, message in messages %}
+          <li>{{ timestamp }} - {{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>暂无留言</p>
+    {% endif %}
+    <h2>发表留言</h2>
+    <form method="post" action="/">
+      <label>请输入留言：</label><br/>
+      <textarea name="message" rows="3" cols="40"></textarea><br/>
+      <input type="submit" value="提交">
+    </form>
+  </body>
+</html>
